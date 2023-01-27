@@ -9,7 +9,7 @@ pip install -r requirements.txt
 py _init_.py
 ```
 3. Admin credentials to login :
-Username : mohitkadyan@gmail.com
+Username : mohit@kadyan.com
 Password : abc456
 
 4. Non-admin credentials to login : 

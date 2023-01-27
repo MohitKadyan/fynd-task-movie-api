@@ -1,0 +1,37 @@
+{% extends "theme.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h2> This API allows the following request types </h2>
+      <ul>
+        <li>[GET] Get All Movies: <a href="{{ url_for('get_movies') }}">{{ url_for('get_movies') }}</a></li>
+        <li>[POST] All movies containing search substring:
+          <form method=POST action="{{ url_for('search_movie_by_name') }}">
+            <p>
+            <label for="movie_name">Movie Name</label>
+            <input type="text" name="movie_name" id="movie_name" placeholder="Movie Name" autofocus>
+            </p>
+            <p><button type="submit" class="btn btn-primary btn-block">Search</button></p>
+          </form>
+        </li>
+        <li>[GET] Get A Single Movie(Only for Admins): e.g. <a href="{{ url_for('get_movie', id='63d03496a877b68521ad5077') }}">{{ url_for('get_movie', id='63d03496a877b68521ad5077') }}</a></li>
+        <li>[POST] Add A Movie(Only for Admins)(format example : {"99popularity": 33,"director": "Victor Fleming","genre":["Adventure"," Family"," Fantasy"," Musical"],"imdb_score": 3.3,"name": "T Oz"}): 
+          <form method=POST action="{{ url_for('add_movie') }}">
+            <p>
+            <label for="movie_details">Movie Details</label>
+            <input type="text" name="movie_details" id="movie_details" placeholder="Details in JSON format" autofocus>
+            </p>
+            <p><button type="submit" class="btn btn-primary btn-block">Add Movie</button></p>
+          </form>
+        </li>
+        <li>[PUT] Update A Movie(Only for Admins)(use postman): e.g. <a href="#">{{ url_for('update_movie', id=1) }}</a></li>
+        <li>[DELETE] Delete A Movie(Only for Admins)(use postman): e.g. <a href="#">{{ url_for('delete_movie', id=1) }}</a></li>
+      </ul>
+      <form method=POST action="{{ url_for('logout') }}">
+      <p><button type="submit" class="btn btn-primary btn-block">Log Out</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
